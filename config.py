@@ -8,8 +8,8 @@ load_dotenv()
 class Config:
     CANVAS_TOKEN = os.getenv("CANVAS_TOKEN")
     BASE_URL = os.getenv("CANVAS_BASE_URL")
-    CYCLE = os.getenv("ACADEMIC_CYCLE", "C24 6to")
     OFFSET = int(os.getenv("TIMEZONE_OFFSET", -5))
+    ACADEMIC_CYCLE = os.getenv("ACADEMIC_CYCLE")
     
     # Headers globales para no repetirlos en cada función
     HEADERS = {

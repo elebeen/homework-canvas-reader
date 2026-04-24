@@ -20,7 +20,7 @@ def get_canvas_courses():
         objetos_cursos = [
             CanvasCourse(id=c["id"], name=c["name"]) 
             for c in data 
-            if "name" in c and c["name"] and "C24 6to" in c["name"]
+            if "name" in c and c["name"] and f"{Config.ACADEMIC_CYCLE}" in c["name"]
         ]
         
         return objetos_cursos
