@@ -11,7 +11,17 @@ app.use(bodyParser.json());
 // 1. Inicializar Cliente de WhatsApp
 const client = new Client({
     authStrategy: new LocalAuth(),
-    puppeteer: { args: ['--no-sandbox'] } // Necesario para algunos servidores
+    puppeteer: { 
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage', // Usa /tmp en lugar de memoria compartida
+            '--disable-accelerated-2d-canvas',
+            '--no-first-run',
+            '--no-zygote',
+            '--disable-gpu'
+        ]
+    } // Necesario para algunos servidores
 });
 
 client.on('qr', (qr) => {
